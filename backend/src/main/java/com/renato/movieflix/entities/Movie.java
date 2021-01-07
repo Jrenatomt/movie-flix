@@ -2,33 +2,48 @@ package com.renato.movieflix.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_movie")
 public class Movie implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String tittle;
-	private String subtittle;
+	private String subTittle;
 	private Integer year;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String synopsis;
 	
+	@ManyToOne
+	@JoinColumn(name = "genre_id")
 	private Genre genre;
 	
 	public Movie() {
 	}
 	
-	public Movie(Long id, String tittle, String subtittle, Integer year, String imgUrl, String synopsis, Genre genre) {
+	public Movie(Long id, String tittle, String subTittle, Integer year, String imgUrl, String synopsis, Genre genre) {
 		super();
 		this.id = id;
 		this.tittle = tittle;
-		this.subtittle = subtittle;
+		this.subTittle = subTittle;
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
 		this.genre = genre;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -46,12 +61,12 @@ public class Movie implements Serializable {
 		this.tittle = tittle;
 	}
 
-	public String getSubtittle() {
-		return subtittle;
+	public String getsubTittle() {
+		return subTittle;
 	}
 
-	public void setSubtittle(String subtittle) {
-		this.subtittle = subtittle;
+	public void setsubTittle(String subTittle) {
+		this.subTittle = subTittle;
 	}
 
 	public Integer getYear() {
