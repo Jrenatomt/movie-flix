@@ -2,8 +2,8 @@ package com.renato.movieflix.entities.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.renato.movieflix.entities.Genre;
+import com.renato.movieflix.entities.Review;
 
-public interface GenreRepository extends JpaRepository<Genre, Long> {
-	
+public interface ReviewRepository extends JpaRepository<Review, Long>{
+
 }
