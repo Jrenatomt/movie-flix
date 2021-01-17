@@ -22,8 +22,8 @@ public class Movie implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tittle;
-	private String subTittle;
+	private String title;
+	private String subTitle;
 	private Integer year;
 	private String imgUrl;
 	
@@ -40,11 +40,11 @@ public class Movie implements Serializable {
 	public Movie() {
 	}
 	
-	public Movie(Long id, String tittle, String subTittle, Integer year, String imgUrl, String synopsis, Genre genre) {
+	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Genre genre) {
 		super();
 		this.id = id;
-		this.tittle = tittle;
-		this.subTittle = subTittle;
+		this.title = title;
+		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
@@ -59,20 +59,12 @@ public class Movie implements Serializable {
 		this.id = id;
 	}
 
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
-	}
-
-	public String getsubTittle() {
-		return subTittle;
-	}
-
-	public void setsubTittle(String subTittle) {
-		this.subTittle = subTittle;
+	public void setTitle(String tittle) {
+		this.title = tittle;
 	}
 
 	public Integer getYear() {
@@ -105,6 +97,18 @@ public class Movie implements Serializable {
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}
+
+	public String getSubTittle() {
+		return subTitle;
+	}
+
+	public void setSubTittle(String subTittle) {
+		this.subTitle = subTittle;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
 	}
 
 	@Override

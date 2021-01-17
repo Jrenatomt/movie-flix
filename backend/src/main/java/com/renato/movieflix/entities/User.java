@@ -41,7 +41,7 @@ public class User implements UserDetails, Serializable{
 	    inverseJoinColumns = @JoinColumn(name= "role_id"))
 	private Set<Role> roles = new HashSet<>();
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Review> reviews = new ArrayList<>();
 	
 	public User() {
